@@ -1,0 +1,17 @@
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: radiobrain
+    image: radiobrain:latest
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./src:/src
+      - ./data:/data
+      - ./assets:/assets
+    ports:
+      - "7860:7860"
+    restart: unless-stopped

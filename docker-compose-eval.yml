@@ -1,0 +1,13 @@
+services:
+
+  eval:
+    build:
+      context: .
+      dockerfile: Dockerfile-eval
+    container_name: radiobrain-eval
+    image: radiobrain-eval:latest
+    volumes:
+      - ./data:/data
+    command: >
+      poetry run python src/eval.py --config eval-config.yaml
+    restart: "no"

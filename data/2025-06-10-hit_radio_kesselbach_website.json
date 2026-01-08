@@ -1,0 +1,52 @@
+{
+  "team": [
+    {
+      "name": "Vroni \"Spatzl\" Schmidhuber",
+      "url": "https://www.hitradio-kesselbach.de/team/vroni-schmidhuber",
+      "summary": "**Vroni \"Spatzl\" Schmidhuber | Moderatorin bei Hitradio Kesselbach**\n\n**Über Vroni:**\n- **Vorlieben:** Prosecco zum Frühstück, die neuesten TikTok-Dance-Challenges, Klatsch aus der Kesselbacher High Society.\n- **Abneigungen:** Funklöcher auf dem Land, langsame Kassenschlangen, ungestylte Selfies.\n- **Hobbys:** Prosecco-Yoga, Shopping-Marathons im Pasinger Outlet, den Thermomix an seine Grenzen bringen.\n- **Werdegang:** Gewann eine lokale Casting-Show, wurde Influencerin für Trachtenmode und landete dann direkt am Mikrofon der MorningShow.\n- **Stärken:** Ansteckend gute Laune & kennt jeden beim Vornamen.\n- **Schwächen:** Verquatscht sich gerne mal und verrät zu viele private Details on air.\n- **Lieblingszitat:** \"A bisserl was geht immer!\"",
+      "full_text": "Vroni 'Spatzl' Schmidhuber ist das sprudelnde, immer wache Herz der Hitradio Kesselbach MorningShow. Schon um 05:30 Uhr postet sie das erste Boomerang-Video aus der Maske. Sie ist diejenige, die Basti dazu zwingt, an peinlichen Hörer-Challenges teilzunehmen und die neusten Chart-Hits lauter dreht, 'weil man das fühlen muss'. Nach der Show trifft man sie meistens beim Bäcker, wo sie die heißesten Gerüchte für den nächsten Tag sammelt."
+    },
+    {
+      "name": "Basti \"Der Gamsbart\" Gärtner",
+      "url": "https://www.hitradio-kesselbach.de/team/basti-gaertner",
+      "summary": "**Basti \"Der Gamsbart\" Gärtner | Moderator bei Hitradio Kesselbach**\n\n**Über Basti:**\n- **Vorlieben:** FC Bayern, sein aufgemotzter Golf GTI, eine deftige Brotzeit.\n- **Abneigungen:** Radfahrer auf der Landstraße, vegane Weißwurst, komplizierte Bedienungsanleitungen.\n- **Hobbys:** Stammtisch im Schützenheim, Auto-Tuning, Grillen (auch im Winter).\n- **Werdegang:** Lokale Fußball-Legende (Kreisliga), dann Autoverkäufer, wurde beim Bierzelt-Interview für seine markante Stimme entdeckt.\n- **Stärken:** Unerschütterliche Ruhe & die besten Bauernregeln für jede Lebenslage.\n- **Schwächen:** Ist vor dem ersten Kaffee extrem mürrisch.\n- **Lieblingszitat:** \"Schaun mer mal, dann seng ma's scho!\"",
+      "full_text": "Basti 'Der Gamsbart' Gärtner ist der Fels in der Brandung im morgendlichen Chaos. Er ist die Stimme der Vernunft, wenn Vroni wieder eine 'total verrückte Idee' hat. Er liefert die knallharten Fakten: den Blitzer-Marathon, die aktuellen Benzinpreise und die Ergebnisse der Spielvereinigung Unterhaching. Sein Markenzeichen ist sein tiefer Seufzer, bevor er einen neuen Pop-Song ankündigt, den Vroni liebt. Im Studio hat er immer seine Brotzeitbox dabei - aus Prinzip."
+    }
+  ],
+  "sendungen": [
+    {
+      "title": "☀️ Der Kesselbach KICKSTART - Die Hitradio Kesselbach MorningShow",
+      "url": "https://www.hitradio-kesselbach.de/sendungen/kesselbach-kickstart",
+      "schedule": "Montag bis Freitag · 06:00 - 10:00 Uhr",
+      "team_members": [
+        "Vroni \"Spatzl\" Schmidhuber",
+        "Basti \"Der Gamsbart\" Gärtner"
+      ],
+      "summary": "**Der Kesselbach KICKSTART** ist der lauteste und lustigste Start in den Tag für ganz Weißwurst-Kesselbach und Umgebung! Die meiste Musik, die frechsten Comedys, der schnellste Blitzer-Service und zwei Moderatoren, die sich lieben und streiten. Vroni sorgt für den Glamour, Basti für die Bodenhaftung - jeden Morgen live aus dem Studio am Kesselbacher Marktplatz.",
+      "full_text": "Um Punkt 06:00 Uhr dröhnt der Jingle durchs Radio und der 'Kesselbach KICKSTART' legt los. Vroni mischt die besten neuen Hits mit den größten Kesselbach-Klassikern, während Basti die Verkehrslage checkt. Fixpunkte sind: 07:15 Uhr 'Vronis VIP-Gossip' (Klatsch und Tratsch aus der Region), 07:30 Uhr 'Kesselbach Kompakt' (Basti fasst die wichtigsten Lokal-News in 90 Sekunden zusammen), 08:10 Uhr 'Bastis Bierzelt-Weisheit des Tages'. Hörer können über die WhatsApp-Hotline mitdiskutieren und beim 'Geräusch des Tages' einen Tankgutschein gewinnen."
+    }
+  ],
+  "aktionen": [
+    {
+      "title": "Die Goldene Leberkas-Semmel",
+      "url": "https://www.hitradio-kesselbach.de/aktionen/goldene-leberkassemmel",
+      "date": "2025-07-01",
+      "team_members": [
+        "Vroni \"Spatzl\" Schmidhuber",
+        "Basti \"Der Gamsbart\" Gärtner"
+      ],
+      "summary": "Wir verstecken Kesselbachs wertvollstes Frühstück! Jeden Freitag im Juli ist eine Leberkas-Semmel bei einem zufällig ausgewählten Metzger 'vergoldet'. Wer sie kauft, gewinnt sofort 1.000 Euro!",
+      "full_text": "Den ganzen Juli über fiebert Weißwurst-Kesselbach mit. Jeden Freitagmorgen geben Vroni und Basti ab 07:00 Uhr stündlich Tipps, in welchem Ortsteil der 'Gold-Metzger' des Tages zu finden ist. Der Hörer, der die Semmel mit dem goldenen Ticket kauft, muss sofort bei der Hitradio Kesselbach Hotline anrufen und den Gewinnspruch sagen. Vroni und Basti schalten den Gewinner dann live ins Programm, um den Jubel mit dem ganzen Sendegebiet zu teilen."
+    },
+    {
+      "title": "Kesselbachs krasseste Vereins-Challenge",
+      "url": "https://www.hitradio-kesselbach.de/aktionen/vereins-challenge",
+      "date": "2025-10-10",
+      "team_members": [
+        "Basti \"Der Gamsbart\" Gärtner"
+      ],
+      "summary": "Basti sucht den stärksten, schnellsten und besten Verein aus Kesselbach! In wöchentlichen Challenges treten Vereine gegeneinander an, um 5.000 Euro für die Vereinskasse zu gewinnen.",
+      "full_text": "Ab dem 10. Oktober reist Basti jeden Montag zu einem anderen Verein in der Region. Die Aufgabe wird live im 'Kesselbach KICKSTART' bekannt gegeben - von 'Wer stapelt die meisten Bierkisten in 60 Sekunden?' bis 'Wer kann am schnellsten einen Maibaum (in Miniatur) aufstellen?'. Die Leistungen werden dokumentiert und die Community stimmt per App ab, welcher Verein in die nächste Runde kommt. Das große Finale findet live auf dem Kesselbacher Volksfest statt, moderiert von Basti und Vroni."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Kesselbach Live",
+    "description": "Das Hauptprogramm - alles aus dem Studio am Marktplatz, 24/7.",
+    "url": "https://www.hitradio-kesselbach.de/stream/live"
+  },
+  {
+    "name": "Kesselbach Top 40",
+    "description": "Die heißesten 40 Songs der Woche, gewählt von euch.",
+    "url": "https://www.hitradio-kesselbach.de/stream/top40"
+  },
+  {
+    "name": "Sommerfrische Hits",
+    "description": "Sonne, Cabrio, Eis - der Soundtrack für 30 Grad im Schatten.",
+    "url": "https://www.hitradio-kesselbach.de/stream/sommer"
+  },
+  {
+    "name": "Wiesn Party",
+    "description": "O'zapft is! Wiesn-Klassiker, Ballermann-Bretter & Après-Ski-Knaller.",
+    "url": "https://www.hitradio-kesselbach.de/stream/wiesn"
+  },
+  {
+    "name": "80er Kessel-Kult",
+    "description": "Von NDW bis Synth-Pop: die größten 80er-Hymnen nonstop.",
+    "url": "https://www.hitradio-kesselbach.de/stream/80er"
+  },
+  {
+    "name": "90er & 2000er Flashback",
+    "description": "Boybands, Eurodance und MP3-Player-Klassiker am Stück.",
+    "url": "https://www.hitradio-kesselbach.de/stream/flashback"
+  },
+  {
+    "name": "Berg & Beats",
+    "description": "Alpen-House, Tracht-Techno und bayerische Club-Edits im Mix.",
+    "url": "https://www.hitradio-kesselbach.de/stream/bergbeats"
+  },
+  {
+    "name": "Leberkas Lounge",
+    "description": "Chillout, Acoustic & Smooth Pop - perfekt zur Brotzeit.",
+    "url": "https://www.hitradio-kesselbach.de/stream/lounge"
+  },
+  {
+    "name": "Schlager Express",
+    "description": "Aktuelle Schlager-Charts und Evergreens zum Mitschunkeln.",
+    "url": "https://www.hitradio-kesselbach.de/stream/schlager"
+  },
+  {
+    "name": "Rock Classics",
+    "description": "Gitarren satt - von AC/DC bis ZZ Top.",
+    "url": "https://www.hitradio-kesselbach.de/stream/rock"
+  },
+  {
+    "name": "Love & Kuschelrock",
+    "description": "Die schönsten Balladen und Slow Jams für Herzklopfen.",
+    "url": "https://www.hitradio-kesselbach.de/stream/love"
+  },
+  {
+    "name": "Workout Turbo",
+    "description": "High-Energy-Beats und Remixe für dein Cardio-Limit.",
+    "url": "https://www.hitradio-kesselbach.de/stream/workout"
+  },
+  {
+    "name": "Kids & Teens",
+    "description": "Saubere Lyrics und TikTok-Hits für die jüngsten Hörer.",
+    "url": "https://www.hitradio-kesselbach.de/stream/kids"
+  },
+  {
+    "name": "Kesselbach Unplugged",
+    "description": "Singer-Songwriter, MTV-Unplugged-Perlen und Akustik-Versionen.",
+    "url": "https://www.hitradio-kesselbach.de/stream/unplugged"
+  },
+  {
+    "name": "Feierabend Chill",
+    "description": "Downtempo & Deep-House zum Runterkommen nach der Arbeit.",
+    "url": "https://www.hitradio-kesselbach.de/stream/feierabend"
+  },
+  {
+    "name": "Deutschrap Update",
+    "description": "Die neuesten Tracks & Klassiker aus dem deutschen Hip-Hop.",
+    "url": "https://www.hitradio-kesselbach.de/stream/deutschrap"
+  },
+  {
+    "name": "Indie & Alternative",
+    "description": "Frischer Indie-Sound und Festival-Lieblinge abseits des Mainstreams.",
+    "url": "https://www.hitradio-kesselbach.de/stream/indie"
+  },
+  {
+    "name": "Classic Country",
+    "description": "Nashville-Vibes von Johnny Cash bis Luke Combs.",
+    "url": "https://www.hitradio-kesselbach.de/stream/country"
+  },
+  {
+    "name": "Electro House Night",
+    "description": "Club-Banger und EDM-Anthems - perfekt für lange Nächte.",
+    "url": "https://www.hitradio-kesselbach.de/stream/electro"
+  },
+  {
+    "name": "Christmas Kessel",
+    "description": "Ganzjährig X-Mas-Feeling - Mariah, Wham! & bayerische Adventshits.",
+    "url": "https://www.hitradio-kesselbach.de/stream/christmas"
+  }
+]

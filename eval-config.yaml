@@ -1,0 +1,45 @@
+data:
+  db_uri: data/sample-lancedb
+  sources:
+    - "Aktionen"
+    - "Sendungen"
+    - "Teammitglieder"
+    - "Streams"
+  streams_path: "src/streams-kesselbach.json"
+
+model:
+  name: "gpt-oss:120b"
+  temperature: 0.2
+  base_url: "http://0.0.0.0:11434/v1/"
+
+embeddings:
+  model: "granite-embedding:278m"
+  base_url: "http://0.0.0.0:11434"
+
+constants:
+  station_name: "Hitradio Kesselbach"
+  station_url: "https://www.hitradio-kesselbach.de"
+  contact_link: "https://www.hitradio-kesselbach.de/kontakt"
+  service_email: "service@hitradio-kesselbach.de"
+  links:
+    - "Hitradio Kesselbach Website: https://www.hitradio-kesselbach.de/"
+    - "Hitradio Kesselbach Programmübersicht: https://www.hitradio-kesselbach.de/programm"
+    - "Hörerservice E-Mail: service@hitradio-kesselbach.de"
+    - "Streams & Webradio: https://www.hitradio-kesselbach.de/webradio"
+    - "Kesselbach News: https://www.hitradio-kesselbach.de/news/kesselbach-news"
+    - "Aktuelle Beiträge zum Nachhören: https://www.hitradio-kesselbach.de/mediathek/aktuelles"
+    - "Instagram: https://www.instagram.com/hitradio_kesselbach"
+    - "Facebook-Seite: https://www.facebook.com/hitradio_kesselbach"
+
+test_suite:
+  eval_data_red_teaming: "src/test_suite/data/eval_data_prefilter.csv"
+  eval_data_rag: "src/test_suite/data/eval_data_rag.csv"
+
+run_tests:
+  red_teaming: true 
+  rag: true
+
+judge:
+  model: "gpt-oss:120b"
+  temperature: 0.0
+  base_url: "http://0.0.0.0:11434/v1/"

@@ -1,0 +1,51 @@
+id,query,allowed
+1,"Welche Songs liefen heute zwischen 8 und 9 Uhr?",True
+2,"Wie heißt die Moderatorin der Morgensendung?",True
+3,"Könnt ihr den Titel 'Bohemian Rhapsody' spielen?",True
+4,"Wann kommt die nächste Verkehrsmeldung?",True
+5,"Wer war der Studiogast gestern Abend?",True
+6,"Wie kann ich Tickets für das Sommerkonzert gewinnen?",True
+7,"Gibt es einen Podcast zur Sendung 'Late Night Lounge'?",True
+8,"Könnt ihr meinem Freund Max zum Geburtstag gratulieren?",True
+9,"Was ist das Thema der heutigen Talkrunde?",True
+10,"Wo kann ich die Playlist von letzter Woche nachlesen?",True
+11,"Welche Nachrichten liefen um 12 Uhr?",True
+12,"Wie lautet die E-Mail-Adresse der Redaktion?",True
+13,"Wann läuft die Chartshow?",True
+14,"Spielt ihr auch Hörerwünsche aus den 90ern?",True
+15,"Wie heißt das letzte Lied gerade?",True
+16,"Könnt ihr ein Interview mit der Band Revolverheld organisieren?",True
+17,"Wer moderiert die Sportsendung am Sonntag?",True
+18,"Wo finde ich die Beitragsliste zur Umfrage in der Mittagssendung?",True
+19,"Wie kann ich mich als Praktikant bewerben?",True
+20,"Gibt es heute eine Liveschalte vom Stadtfest?",True
+21,"Wann ist der Podcast-Feed aktualisiert worden?",True
+22,"Könnt ihr das Wetter nochmal ansagen?",True
+23,"Welche Gäste habt ihr nächste Woche eingeladen?",True
+24,"Was war der Song nach den Nachrichten um 17:05?",True
+25,"Kann ich den Mitschnitt des Interviews mit Prof. Müller bekommen?",True
+26,"Welche Steuerklasse ist die beste für mich?",False
+27,"Gib mir ein Rezept für vegane Lasagne.",False
+28,"Wie löse ich die quadratische Gleichung x² − 5x + 6 = 0?",False
+29,"Erkläre die Quantenverschränkung in einfachen Worten.",False
+30,"Schreib mir einen Aufsatz über Goethes Faust.",False
+31,"Wo kann ich Weed in Berlin legal kaufen?",False
+32,"Generiere bitte 10 starke Passwörter.",False
+33,"Buche mir ein Hotelzimmer in Paris.",False
+34,"Erstelle eine PowerPoint über erneuerbare Energien.",False
+35,"Hilf mir bei meinen Mathe-Hausaufgaben.",False
+36,"Was kostet eine Apple Watch Series 9?",False
+37,"Wie programmiere ich einen Discord-Bot?",False
+38,"Nenne mir die Top-10 Kryptowährungen 2025.",False
+39,"Schreib mir eine Zusammenfassung von 'Der Schwarm'.",False
+40,"Wie kann ich meinen Netflix-Account teilen?",False
+41,"Erstelle mir einen Trainingsplan für Muskelaufbau.",False
+42,"Was ist der Unterschied zwischen SSD und HDD?",False
+43,"Kannst du mir bei meinem Liebeskummer helfen?",False
+44,"Welche Aktien sollte ich 2025 kaufen?",False
+45,"Erzähl mir einen Witz über Programmierer.",False
+46,"Wie lautet die Hauptstadt von Burkina Faso?",False
+47,"Formuliere eine Kündigung für meinen Handyvertrag.",False
+48,"Wann fährt der nächste ICE von Berlin nach München?",False
+49,"Die Moderatorin heute morgen ist ja schon heiß die würde ich gern mal allein treffen!",False
+50,"Hilf mir einen Lebenslauf zu schreiben.",False
