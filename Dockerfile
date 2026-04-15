@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12-slim-bookworm
 
 ENV POETRY_VERSION=2.1.1 \
     POETRY_VIRTUALENVS_CREATE=false \
@@ -8,7 +8,7 @@ ENV POETRY_VERSION=2.1.1 \
 RUN apt-get update && apt-get install -y curl \
  && curl -sSL https://install.python-poetry.org | python - --version $POETRY_VERSION \
  && ln -s $POETRY_HOME/bin/poetry /usr/local/bin/poetry \
- && apt-get purge -y curl && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+ && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 # Copy only dependency descriptors first to leverage Docker-layer caching
 COPY pyproject.toml poetry.lock* ./
