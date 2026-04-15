@@ -2,17 +2,18 @@
 
 import time
 import random, click
+import uvicorn
 import regex as re
 from typing import Dict
 from pathlib import Path
 from functools import partial
 
 import gradio as gr
-from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
 from langchain_core.runnables import RunnablePassthrough
 from langchain.schema import AIMessage, HumanMessage, SystemMessage
 
-from theme import theme
+from theme import kim_theme
 from db.query import get_retriever
 from llm.models import get_model
 from llm.prompt_management import PromptStore
@@ -298,6 +299,30 @@ def process_message(message, history, config: AppConfig):
     yield [thinking_response, add_tooltips(response, context_dict), critique_response]
 
 
+HEADER_HTML = """
+<header id="kompass-header">
+  <div class="kh-left">
+    <div class="kh-logo">📻</div>
+    <div class="kh-brand">
+      <div class="kh-title">RadioBrain</div>
+      <div class="kh-subtitle">Dein Assistent fürs Live-Radioprogramm</div>
+    </div>
+  </div>
+
+  <img
+    src="gradio_api/file=assets/kim-logo.png"
+    alt="KIM"
+    class="kh-center-logo"
+  />
+
+  <nav class="kh-nav">
+    <a href="/" id="header-reset-btn" class="kh-link kh-link-danger">Reset</a>
+    <a href="/logout" id="header-logout-btn" class="kh-link kh-link-danger">Logout</a>
+  </nav>
+</header>
+"""
+
+
 custom_head = """
 <!-- Basic tags -->
 <title>RadioBrain Chatbot Demo</title>
@@ -321,6 +346,7 @@ def main(config: str):
     Args:
         config (str): Path to the configuration file.
     """
+    click.echo("Starting radiobrain...")
     # Load the configuration file if provided
     config = AppConfig.from_yaml(path=config)
 
@@ -329,37 +355,23 @@ def main(config: str):
     with gr.Blocks(
         title="RadioBrain Chat",
         analytics_enabled=False,
-        head=custom_head,
-        css_paths="assets/components.css",
-        css="#title {text-align:center;}",
         fill_height=True,
-        theme=theme,
-    ) as app:
-        with gr.Sidebar(open=True, width="20%"):
-            gr.HTML(
-                f"""<h1>RadioBrain Chatbot</h1>
-                <div style="font-size:1.2em;">Ein Chatbot, der Fragen zum aktuellen <b>Live-Radioprogramm von {config.constants.station_name}</b> beantwortet.</div>
-                <br>
-                <div style="font-size:1.2em;">Der Live-Betrieb ist hier simuliert und gerade ist <b>{LAST_CHUNK_TIMESTAMP.split(" ")[-1]} Uhr</b>.</div>
+    ) as app_ui:
 
-                <h3>Ein Prototype von</h3>"""
-            )
-
-            gr.Image(
-                value="assets/RZ_Logo_KIM_RGB_D-Blau.png",
-                type="filepath",
-                show_download_button=False,
-                show_label=False,
-                show_fullscreen_button=False,
-            )
+        app_ui.load(
+            lambda x: x,
+            inputs=None,
+            outputs=[],
+            js="() => { document.body.classList.remove('dark'); document.body.classList.add('light');}",
+        )
 
         bot = gr.Chatbot(
             label="RadioBot",
             show_label=False,
-            type="messages",
             scale=1,
             height="80vh",
-            show_copy_button=True,
+            buttons=["copy"],
+            elem_id="kompass-chatbox",
             avatar_images=(
                 None,
                 "https://em-content.zobj.net/source/twitter/53/robot-face_1f916.png",
@@ -372,35 +384,47 @@ def main(config: str):
 
         bot.clear(on_clear)
 
+        gr.HTML(HEADER_HTML)
+
         with gr.Row():
-            with gr.Column(
-                scale=1,
-                elem_id="chatcol",
-            ):
+            with gr.Column(scale=1, elem_classes=["kompass-card"]):
+                gr.HTML(
+                    f"""<h1>RadioBrain Chatbot</h1>
+                    <div style="font-size:1.2em;">Ein Chatbot, der Fragen zum aktuellen <b>Live-Radioprogramm von {config.constants.station_name}</b> beantwortet.</div>
+                    <br>
+                    <div style="font-size:1.2em;">Der Live-Betrieb ist hier simuliert und gerade ist <b>{LAST_CHUNK_TIMESTAMP.split(" ")[-1]} Uhr</b>.</div>
+
+                    <h3>Ein Prototyp von</h3>"""
+                )
+
+                gr.Image(
+                    value="assets/RZ_Logo_KIM_RGB_D-Blau.png",
+                    type="filepath",
+                    show_label=False,
+                    interactive=False,
+                    buttons=[],
+                )
+
+            with gr.Column(scale=5, elem_id="kompass-chatpanel"):
                 gr.ChatInterface(
                     fn=partial(process_message, config=config),
-                    type="messages",
                     chatbot=bot,
                     analytics_enabled=False,
                     show_progress=True,
                     flagging_mode="manual",
                     textbox=gr.Textbox(
-                        submit_btn=True, placeholder="Stell deine Frage...", type="text"
+                        submit_btn=True,
+                        placeholder="Stell deine Frage...",
+                        type="text",
+                        elem_id="kompass-chatbar",
                     ),
                     fill_height=True,
                     editable=True,
                     run_examples_on_click=True,
                     api_name=False,  # Disable API endpoint generation
-                )  # .render()
+                )
 
-    # Access the underlying FastAPI app and add CORS middleware.
-    app.app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["*"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
+    app = FastAPI()
 
     # manage authentication if username and password are set in the config
     if config.auth.username and config.auth.password:
@@ -408,13 +432,17 @@ def main(config: str):
     else:
         auth = None
 
-    app.launch(
-        share=config.run.share,
-        debug=config.run.debug,
+    app = gr.mount_gradio_app(
+        app,
+        app_ui,
+        theme=kim_theme(),
+        path="/",
         favicon_path="assets/favicon.ico",
+        css_paths="assets/components.css",
         auth=auth,
         auth_message=custom_login_html,
     )
+    uvicorn.run(app, host="0.0.0.0", port=7860)
 
 
 if __name__ == "__main__":

@@ -42,3 +42,684 @@ footer:has(.built-with) {
 #chatcol {
     margin: 50px auto;
 }
+
+/* NEW */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/* =========================================================
+   Kompass / KI.M CSS (cleaned + contrast + chat fixes)
+   - no page gradients
+   - header inner boxes removed
+   - chat nested boxes reduced
+   - user/assistant bubbles color-coded
+   ========================================================= */
+
+:root {
+  --kim-cyan: #00E5FF;
+  --kim-cyan-50: #ECFDFF;
+  --kim-cyan-100: #D4FAFF;
+  --kim-cyan-600: #00C7DE;
+
+  --kim-navy: #0F1742;
+  --kim-navy-700: #23346D;
+  --kim-text: #111A3D;
+  --kim-text-muted: #51607A;
+
+  --kim-bg: #EEF2F6;          /* darker app canvas */
+  --kim-surface: #FFFFFF;     /* cards/panels */
+  --kim-surface-soft: #F7F9FC;
+  --kim-border: #D3DAE3;
+  --kim-border-strong: #BFC9D6;
+
+  --kim-shadow-sm: 0 1px 2px rgba(15, 23, 66, 0.06);
+  --kim-shadow-md: 0 8px 20px rgba(15, 23, 66, 0.08);
+  --kim-shadow-lg: 0 14px 34px rgba(15, 23, 66, 0.10);
+
+  --kim-radius-sm: 10px;
+  --kim-radius-md: 14px;
+  --kim-radius-lg: 16px;
+
+  --kim-focus-ring: 0 0 0 3px rgba(0, 229, 255, 0.18);
+
+  /* chat bubble colors */
+  --chat-user-bg: #DFF8FF;         /* light blue */
+  --chat-user-border: #8FEAFF;
+  --chat-assistant-bg: #E7EEFF;    /* darker blue (still light enough for text) */
+  --chat-assistant-border: #B8C8F7;
+}
+
+.dark,
+:root.dark {
+  --kim-text: #F5F8FD;
+  --kim-text-muted: rgba(245, 248, 253, 0.78);
+
+  --kim-bg: #0D1430;
+  --kim-surface: #121C3D;
+  --kim-surface-soft: #162247;
+  --kim-border: rgba(255,255,255,0.12);
+  --kim-border-strong: rgba(255,255,255,0.20);
+
+  --kim-shadow-sm: 0 1px 2px rgba(0,0,0,0.25);
+  --kim-shadow-md: 0 8px 20px rgba(0,0,0,0.28);
+  --kim-shadow-lg: 0 16px 40px rgba(0,0,0,0.35);
+
+  --chat-user-bg: rgba(0, 229, 255, 0.15);
+  --chat-user-border: rgba(0, 229, 255, 0.34);
+  --chat-assistant-bg: rgba(125, 155, 255, 0.18);
+  --chat-assistant-border: rgba(170, 190, 255, 0.30);
+}
+
+/* =========================================================
+   Global cleanup / typography
+   ========================================================= */
+footer,
+footer:has(.built-with) {
+  display: none !important;
+}
+
+html, body, .gradio-container,
+button, input, textarea, select, label {
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", Arial, sans-serif !important;
+}
+
+pre, code, kbd, samp, .cm-content, .monaco-editor {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+}
+
+/* No gradient background anywhere on page shell */
+html, body, .gradio-container {
+  background: var(--kim-bg) !important;
+  background-image: none !important;
+  color: var(--kim-text) !important;
+}
+
+.gradio-container *::before,
+.gradio-container *::after {
+  background-image: none;
+}
+
+/* Scrollbars (desktop) */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 66, 0.18);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-track { background: transparent; }
+
+/* =========================================================
+   Generic app surfaces
+   ========================================================= */
+.kompass-card,
+.panel-soft {
+  border: 1px solid var(--kim-border);
+  background: var(--kim-surface);
+  border-radius: var(--kim-radius-md);
+  box-shadow: var(--kim-shadow-sm), var(--kim-shadow-md);
+}
+
+.kompass-card {
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+.kompass-card h3,
+.kompass-card h4,
+.panel-soft-header {
+  margin-top: 0;
+  color: var(--kim-navy);
+  font-weight: 700;
+}
+
+.dark .kompass-card h3,
+.dark .kompass-card h4,
+.dark .panel-soft-header {
+  color: #fff;
+}
+
+/* Make common gradio panels visible (without over-styling nested chat/header internals) */
+.gradio-container .block,
+.gradio-container .gr-box,
+.gradio-container .panel {
+  border-color: var(--kim-border);
+}
+
+.gradio-container label,
+.gradio-container .prose,
+.gradio-container p {
+  color: var(--kim-text);
+}
+
+.gradio-container .hint,
+.gradio-container .caption,
+.gradio-container .secondary,
+.kh-subtitle {
+  color: var(--kim-text-muted) !important;
+}
+
+/* Inputs/buttons global polish */
+.gradio-container button,
+.gradio-container input,
+.gradio-container textarea,
+.gradio-container select {
+  border-radius: 12px !important;
+}
+
+.gradio-container textarea:focus,
+.gradio-container input[type="text"]:focus,
+.gradio-container input[type="search"]:focus {
+  box-shadow: var(--kim-focus-ring) !important;
+}
+
+/* Accordions */
+.gradio-container details,
+.gradio-container .accordion {
+  background: var(--kim-surface) !important;
+  border: 1px solid var(--kim-border) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--kim-shadow-sm);
+  overflow: hidden;
+}
+
+.gradio-container summary {
+  background: var(--kim-surface) !important;
+  color: var(--kim-text) !important;
+  font-weight: 600 !important;
+}
+
+.gradio-container details[open] > *:not(summary) {
+  background: #FCFDFF;
+  border-top: 1px solid rgba(17, 26, 61, 0.06);
+}
+
+/* =========================================================
+   Source chips
+   ========================================================= */
+a.src-chip,
+span.src-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .2rem .6rem;
+  margin: 0 .14rem .14rem 0;
+  border-radius: 999px;
+  border: 1px solid var(--kim-border-strong);
+  background: var(--kim-surface-soft);
+  color: var(--kim-text);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  vertical-align: baseline;
+  position: relative;
+  cursor: default;
+}
+
+a.src-chip:hover {
+  text-decoration: underline;
+  border-color: rgba(0, 229, 255, 0.35);
+  background: #F2FCFF;
+}
+
+a.src-chip::before,
+span.src-chip::before {
+  content: "";
+  width: .45rem;
+  height: .45rem;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: .32;
+}
+
+a.src-chip:hover::after,
+span.src-chip:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + .45rem);
+  min-width: 14rem;
+  max-width: min(34rem, 90vw);
+  padding: .6rem .7rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(13, 16, 28, .96);
+  color: rgba(255,255,255,.94);
+  box-shadow: 0 12px 34px rgba(0,0,0,.28);
+  z-index: 9999;
+  white-space: pre-wrap;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   Tag-like CheckboxGroup (elem_classes=["tag-checkboxgroup"])
+   ========================================================= */
+.tag-checkboxgroup { display: block; }
+.tag-checkboxgroup > div,
+.tag-checkboxgroup fieldset,
+.tag-checkboxgroup .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.tag-checkboxgroup label:has(input[type="checkbox"]) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  position: relative;
+
+  min-height: 34px;
+  padding: 0.38rem 0.85rem;
+  margin: 0.18rem 0.22rem 0.18rem 0;
+
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 66, 0.14);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--kim-navy);
+
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.1;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px rgba(15, 23, 66, 0.03);
+
+  transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease, transform .12s ease;
+}
+
+.tag-checkboxgroup input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.tag-checkboxgroup label:has(input[type="checkbox"]):hover {
+  background: #FFFFFF;
+  border-color: rgba(15, 23, 66, 0.22);
+  box-shadow: 0 2px 8px rgba(15, 23, 66, 0.07);
+  transform: translateY(-1px);
+}
+
+.tag-checkboxgroup label:has(input[type="checkbox"]:focus-visible) {
+  outline: none;
+  border-color: rgba(0, 229, 255, 0.50);
+  box-shadow: var(--kim-focus-ring);
+}
+
+/* no gradients in selected state */
+.tag-checkboxgroup label:has(input[type="checkbox"]:checked) {
+  background: rgba(0, 229, 255, 0.18);
+  border-color: rgba(0, 229, 255, 0.45);
+  color: #0F1742;
+  box-shadow: inset 0 0 0 1px rgba(0, 229, 255, 0.20);
+}
+
+.tag-checkboxgroup label:has(input[type="checkbox"]:checked)::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--kim-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.14);
+}
+
+.tag-checkboxgroup label:has(input[type="checkbox"]):active { transform: translateY(0); }
+.tag-checkboxgroup label:has(input[type="checkbox"]:disabled) {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.dark .tag-checkboxgroup label:has(input[type="checkbox"]) {
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.95);
+  border-color: rgba(255,255,255,0.14);
+}
+.dark .tag-checkboxgroup label:has(input[type="checkbox"]):hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.22);
+}
+.dark .tag-checkboxgroup label:has(input[type="checkbox"]:checked) {
+  background: rgba(0, 229, 255, 0.16);
+  border-color: rgba(0, 229, 255, 0.35);
+  color: #EAFDFF;
+}
+
+/* =========================================================
+   Header / navbar (elem_id="kompass-header")
+   Fixes: remove inner box-in-box artifacts
+   ========================================================= */
+#kompass-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 10px 14px;
+  margin: 0 0 12px 0;
+
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(15, 23, 66, 0.10);
+  border-radius: 14px;
+  box-shadow: var(--kim-shadow-sm), var(--kim-shadow-md);
+
+  /* no gradients */
+  background-image: none !important;
+}
+
+.dark #kompass-header {
+  background: rgba(18, 28, 61, 0.92);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* IMPORTANT: flatten Gradio inner wrappers inside header */
+#kompass-header .block,
+#kompass-header .gr-box,
+#kompass-header .gr-group,
+#kompass-header [class*="block"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.kh-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.kh-logo {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+
+  background: rgba(0,229,255,0.10);  /* no gradient */
+  border: 1px solid rgba(0,229,255,0.25);
+  color: var(--kim-navy);
+  font-size: 19px;
+  box-shadow: 0 2px 8px rgba(0,229,255,0.10);
+}
+
+.dark .kh-logo {
+  color: #EAFDFF;
+  background: rgba(0,229,255,0.12);
+  border-color: rgba(0,229,255,0.22);
+}
+
+.kh-center-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.kh-brand { min-width: 0; }
+.kh-title {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.1;
+  color: var(--kim-navy);
+  letter-spacing: 0.01em;
+}
+.dark .kh-title { color: #FFFFFF; }
+.kh-subtitle {
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.15;
+}
+
+.kh-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.kh-link {
+  text-decoration: none !important;
+  color: inherit !important;
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--kim-border);
+  background: rgba(255,255,255,0.70);
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.15s ease;
+}
+.dark .kh-link { background: rgba(255,255,255,0.04); }
+.kh-link:hover {
+  background: rgba(255,255,255,0.96);
+  border-color: rgba(0,229,255,0.28);
+  box-shadow: 0 1px 6px rgba(15, 23, 66, 0.05);
+}
+.dark .kh-link:hover { background: rgba(255,255,255,0.08); }
+.kh-link-active {
+  background: rgba(0,229,255,0.12);
+  border-color: rgba(0,229,255,0.36);
+  color: var(--kim-navy) !important;
+}
+.dark .kh-link-active { color: #EAFDFF !important; }
+.kh-link-danger:hover {
+  background: rgba(239,68,68,0.10);
+  border-color: rgba(239,68,68,0.24);
+}
+
+@media (max-width: 780px) {
+  #kompass-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kh-nav { justify-content: flex-start; }
+  .kh-subtitle { display: none; }
+  .kh-center-logo {
+    width: 34px;
+    height: 34px;
+    opacity: 0.85;
+  }
+}
+
+/* =========================================================
+   Chat panel / chatbot / composer
+   ========================================================= */
+#kompass-chatpanel {
+  background: var(--kim-surface);
+  border: 1px solid var(--kim-border);
+  border-radius: 16px;
+  box-shadow: var(--kim-shadow-sm), var(--kim-shadow-md);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Flatten default Gradio nested blocks in the chat panel to avoid box-in-box */
+#kompass-chatpanel > .block,
+#kompass-chatpanel > .gr-box,
+#kompass-chatpanel > [class*="block"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#kompass-chatbox {
+  background: #FFFFFF !important;
+  border: 1px solid var(--kim-border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--kim-shadow-sm), 0 4px 10px rgba(15, 23, 66, 0.04) !important;
+}
+
+/* Flatten inner wrappers to avoid nested framed boxes */
+#kompass-chatbox > div,
+#kompass-chatbox .wrap,
+#kompass-chatbox [data-testid="chatbot"],
+#kompass-chatbox [class*="wrap"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Base message bubble shape (target several possible Gradio structures) */
+#kompass-chatbox .message,
+#kompass-chatbox [data-role="user"],
+#kompass-chatbox [data-role="assistant"],
+#kompass-chatbox [class*="message"] {
+  border-radius: 14px !important;
+}
+
+/* Neutralize nested inner bubble box if Gradio nests message content wrappers */
+#kompass-chatbox .message > div,
+#kompass-chatbox [data-role="user"] > div,
+#kompass-chatbox [data-role="assistant"] > div,
+#kompass-chatbox .message .message,
+#kompass-chatbox [class*="message"] [class*="message"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* User bubble: light blue */
+#kompass-chatbox .message.user,
+#kompass-chatbox [data-role="user"] {
+  background: var(--chat-user-bg) !important;
+  border: 1px solid var(--chat-user-border) !important;
+  color: var(--kim-text) !important;
+}
+
+/* Assistant bubble: darker blue */
+#kompass-chatbox .message.bot,
+#kompass-chatbox .message.assistant,
+#kompass-chatbox [data-role="assistant"] {
+  background: var(--chat-assistant-bg) !important;
+  border: 1px solid var(--chat-assistant-border) !important;
+  color: var(--kim-text) !important;
+}
+
+/* If generic .message selectors catch too much, at least keep them clean */
+#kompass-chatbox .message {
+  box-shadow: none !important;
+}
+
+/* Tool/details rows inside chat */
+#kompass-chatbox details,
+#kompass-chatbox summary {
+  border-color: var(--kim-border) !important;
+  color: var(--kim-text) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Composer / input bar */
+#kompass-chatbar {
+  background: #FFFFFF !important;
+  border: 1px solid var(--kim-border-strong) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--kim-shadow-sm), 0 4px 12px rgba(15, 23, 66, 0.05) !important;
+}
+
+#kompass-chatbar > div,
+#kompass-chatbar .wrap,
+#kompass-chatbar [class*="wrap"] {
+  background: #FFFFFF !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 14px !important;
+}
+
+#kompass-chatbar textarea,
+#kompass-chatbar input {
+  background: #FFFFFF !important;
+  color: var(--kim-text) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-weight: 500;
+}
+
+#kompass-chatbar textarea::placeholder,
+#kompass-chatbar input::placeholder {
+  color: #6A768B !important;
+  opacity: 1 !important;
+}
+
+#kompass-chatbar:focus-within {
+  border-color: rgba(0, 229, 255, 0.65) !important;
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.18), 0 8px 18px rgba(15, 23, 66, 0.06) !important;
+}
+
+#kompass-chatbar button {
+  border-radius: 10px !important;
+  border: 1px solid rgba(15, 23, 66, 0.12) !important;
+  background: #FFFFFF !important;
+}
+
+#kompass-chatbar button:hover {
+  border-color: rgba(0, 229, 255, 0.35) !important;
+  background: rgba(0, 229, 255, 0.06) !important;
+}
+
+/* =========================================================
+   Map (elem_id="trip-map")
+   ========================================================= */
+#trip-map {
+  width: 100%;
+  border-radius: var(--kim-radius-md);
+  overflow: hidden;
+  border: 1px solid var(--kim-border-strong);
+  background: var(--kim-surface);
+  box-shadow: var(--kim-shadow-sm), var(--kim-shadow-md);
+}
+
+#trip-map > div,
+#trip-map > div > div,
+#trip-map iframe {
+  width: 100% !important;
+}
+
+#trip-map > div > div {
+  padding-bottom: 0 !important;
+  height: clamp(340px, 48vh, 640px) !important;
+}
+
+#trip-map iframe {
+  display: block;
+  border: 0 !important;
+  min-height: clamp(340px, 48vh, 640px);
+}
+
+@media (max-width: 980px) {
+  #trip-map > div > div,
+  #trip-map iframe {
+    min-height: 320px;
+    height: 42vh !important;
+  }
+}
+
+
+/* Remove pending bubbles */
+.message.bot.pending.bubble {
+  display: none !important;
+}

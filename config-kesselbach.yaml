@@ -33,7 +33,7 @@ constants:
 
 auth:
   username: 
-  password: 
+  password:
 
 run:
   share: false 
