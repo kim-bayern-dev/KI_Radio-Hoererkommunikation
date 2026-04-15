@@ -32,8 +32,8 @@ constants:
     - "Facebook-Seite: https://www.facebook.com/hitradio_kesselbach"
 
 auth:
-  username:
-  password:
+  username: 
+  password: 
 
 run:
   share: false 
