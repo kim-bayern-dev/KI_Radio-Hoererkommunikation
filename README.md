@@ -76,7 +76,7 @@ The prototype is intended for use by media companies.
 Copyright (c) 2026 Medien.Bayern GmbH.
 
 ## Contributors
-Original development by the Medien.Bayern GmbH ([KI.M](https://medien-bayern.de/ki-kompetenzzentrum-medien/)) in collaboration with [Tobias Sterbak](https://tobiassterbak.com). 
+Original development by the Medien.Bayern GmbH ([KI.M](https://www.kim-bayern.de/)) in collaboration with [Tobias Sterbak](https://tobiassterbak.com). 
 
 ## A project of KI-Kompetenzzentrum Medien (KI.M)
 The KI-Kompetenzzentrum Medien (KI.M) is the central hub for artificial intelligence in Bavaria's media industry. We support media companies in adopting AI solutions that are legally compliant, future-proof, and built on data-sovereign infrastructure.
@@ -85,6 +85,6 @@ We provide independent information and hands-on demonstrations of AI capabilitie
 
 The KI.M is a joint initiative of the Bayerische Landeszentrale für neue Medien (BLM) and Medien.Bayern GmbH, supported by the Bavarian State Chancellery.
 
-**Learn more:** [Visit our website](https://medien-bayern.de/ki-kompetenzzentrum-medien/)
+**Learn more:** [Visit our website](https://www.kim-bayern.de/)
 
 ![logo-kim](assets/RZ_Logo_KIM_RGB_D-Blau.png)
