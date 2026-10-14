@@ -1,4 +1,4 @@
-[🇩🇪 Deutsch](README.de.md) | 🇬🇧 English
+[🇩🇪 Deutsch](README.md) | 🇬🇧 English
 
 # AI-powered fully automated listener communication
 

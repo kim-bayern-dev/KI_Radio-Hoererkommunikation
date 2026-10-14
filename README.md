@@ -1,4 +1,4 @@
-🇩🇪 Deutsch | [🇬🇧 English](README.en.md)
+🇩🇪 Deutsch | [🇬🇧 English](README_en.md)
 
 # KI-gestützte vollautomatisierte Hörerkommunikation
 
