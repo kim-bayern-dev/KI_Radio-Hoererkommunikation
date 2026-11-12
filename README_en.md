@@ -85,8 +85,8 @@ The KI-Kompetenzzentrum Medien (KI.M) is the central hub for artificial intellig
 
 We provide independent information and hands-on demonstrations of AI capabilities and limitations in media applications. Through our AI Lab, we collaborate with partners to test real-world implementations. Our feasibility studies are published as reports on our website, while the technical foundations and code are shared here in our repositories.
 
-The KI.M is a joint initiative of the Bayerische Landeszentrale für neue Medien (BLM) and Medien.Bayern GmbH, supported by the Bavarian State Chancellery.
+The KI-Kompetenzzentrum Medien (KI.M) is a joint initiative of the Bavarian State Office for New Media (BLM) and Medien.Bayern GmbH, with funding from the Bavarian State Chancellery.
 
 **Learn more:** [Visit our website](https://www.kim-bayern.de/)
 
-![logo-kim](assets/RZ_Logo_KIM_RGB_D-Blau.png)
+[![logo-kim](assets/RZ_Logo_KIM_RGB_Weiss.png)](https://www.kim-bayern.de/)
